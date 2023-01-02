@@ -1,10 +1,10 @@
-function getInputevalue() {
-    const depositeInpute = document.getElementById('Input-Deposite');
-    const depositeAmountText = depositeInpute.value;
-    const depositeAmount = parseFloat(depositeAmountText);
+function getInputevalue(inputId) {
+    const inputeField = document.getElementById(inputId);
+    const inputAmountText = inputeField.value;
+    const totalAmount = parseFloat(inputAmountText);
     // clear input clear
-    depositeInpute.value = '';
-    return depositeAmount;
+    inputeField.value = '';
+    return totalAmount;
 }
 
 
@@ -16,7 +16,7 @@ document.getElementById('Deposite-Button').addEventListener('click', function ()
     // const depositeInpute = document.getElementById('Input-Deposite');
     // const depositeAmountText = depositeInpute.value;
     // const depositeAmount = parseFloat(depositeAmountText);
-    const depositeAmount = getInputevalue();
+    const depositeAmount = getInputevalue('Input-Deposite');
 
 
     // get current deposite
@@ -37,10 +37,11 @@ document.getElementById('Deposite-Button').addEventListener('click', function ()
 // Withdraw balance and subtraction total balance
 
 document.getElementById('Withdraw-Button').addEventListener('click', function () {
-    const WithdrawInput = document.getElementById('input-withdraw');
-    const withdrawAmountText = WithdrawInput.value;
-    const withdrawAmount = parseFloat(withdrawAmountText);
+    // const WithdrawInput = document.getElementById('input-withdraw');
+    // const withdrawAmountText = WithdrawInput.value;
+    // const withdrawAmount = parseFloat(withdrawAmountText);
 
+    const withdrawAmount = getInputevalue('input-withdraw')
 
     // update withdraw total
     const dithdrawTotal = document.getElementById('withdraw-total');
@@ -48,8 +49,7 @@ document.getElementById('Withdraw-Button').addEventListener('click', function ()
     const previousWithdrawAmount = parseFloat(withdraTotalText);
     dithdrawTotal.innerText = previousWithdrawAmount + withdrawAmount;
 
-    // clear withdrW INPUT fild
-    WithdrawInput.value = '';
+    
 
     // Update Balance after withdraw
     const BalanceTotal = document.getElementById('Total-Balance');
