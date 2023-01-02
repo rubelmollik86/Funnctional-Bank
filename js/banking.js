@@ -7,6 +7,13 @@ function getInputevalue(inputId) {
     return totalAmount;
 }
 
+function updateTotalField(totalFieldId, Amount){
+    const totalAmount = document.getElementById(totalFieldId);
+    const TotalText = totalAmount.innerText;
+    const previousTotal = parseFloat(TotalText);
+    totalAmount.innerText = previousTotal + Amount;
+}
+
 
 
 
@@ -19,11 +26,13 @@ document.getElementById('Deposite-Button').addEventListener('click', function ()
     const depositeAmount = getInputevalue('Input-Deposite');
 
 
-    // get current deposite
-    const depositeTotal = document.getElementById('Deposite-Total');
-    const depositeTotalText = depositeTotal.innerText;
-    const previousdepositeTotal = parseFloat(depositeTotalText);
-    depositeTotal.innerText = previousdepositeTotal + depositeAmount;
+    // get and update deposite total
+    // const depositeTotal = document.getElementById('Deposite-Total');
+    // const depositeTotalText = depositeTotal.innerText;
+    // const previousdepositeTotal = parseFloat(depositeTotalText);
+    // depositeTotal.innerText = previousdepositeTotal + depositeAmount;
+
+    updateTotalField('Deposite-Total', depositeAmount);
 
     // Update Balance
     const TotalBalance = document.getElementById('Total-Balance');
@@ -43,12 +52,13 @@ document.getElementById('Withdraw-Button').addEventListener('click', function ()
 
     const withdrawAmount = getInputevalue('input-withdraw')
 
-    // update withdraw total
-    const dithdrawTotal = document.getElementById('withdraw-total');
-    const withdraTotalText = dithdrawTotal.innerText;
-    const previousWithdrawAmount = parseFloat(withdraTotalText);
-    dithdrawTotal.innerText = previousWithdrawAmount + withdrawAmount;
+    // get and update withdraw total 
+    // const dithdrawTotal = document.getElementById('withdraw-total');
+    // const withdraTotalText = dithdrawTotal.innerText;
+    // const previousWithdrawAmount = parseFloat(withdraTotalText);
+    // dithdrawTotal.innerText = previousWithdrawAmount + withdrawAmount;
 
+    updateTotalField('withdraw-total', withdrawAmount);
     
 
     // Update Balance after withdraw
