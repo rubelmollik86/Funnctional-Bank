@@ -54,8 +54,11 @@ document.getElementById('Deposite-Button').addEventListener('click', function ()
     // TotalBalance.innerText = PreviousTotalBalance + depositeAmount;
 
     const depositeAmount = getInputevalue('Input-Deposite');
-    updateTotalField('Deposite-Total', depositeAmount);
-    updateBalance(depositeAmount, true);
+    if (depositeAmount > 0) {
+        updateTotalField('Deposite-Total', depositeAmount);
+        updateBalance(depositeAmount, true);
+    }
+
 
 
 })
@@ -86,6 +89,9 @@ document.getElementById('Withdraw-Button').addEventListener('click', function ()
     // BalanceTotal.innerText = prviousBalanceTotal - withdrawAmount;
 
     const withdrawAmount = getInputevalue('input-withdraw')
-    updateTotalField('withdraw-total', withdrawAmount);
-    updateBalance(withdrawAmount, false);
+    if (withdrawAmount > 0) {
+        updateTotalField('withdraw-total', withdrawAmount);
+        updateBalance(withdrawAmount, false);
+    }
+
 });
